@@ -53,7 +53,8 @@ export class CoinsComponent implements OnInit, OnDestroy {
         const items = data.slice(0, size);
 
         this.coins = items;
-        this.toastr.success(`"Information about ${quantity.toString()} coins is loading successfully!"`);
+        let msq_quantity: string = quantity == 1000 ? "all fetched" : quantity.toString();
+        this.toastr.success(`"Information about ${msq_quantity} coins is loading successfully!"`);
       }, (error: any) => {
         this.toastr.error('Information about coins is not loading!');
         console.log(error);

@@ -10,7 +10,6 @@ import { map } from 'rxjs/operators';
 })
 export class CoinService {
 
-  // baseURL = `${environment.mainUrlAPI}coin`;
   baseURL = `${environment.mainUrlAPI}`;
 
   constructor(private http: HttpClient) { }
@@ -22,25 +21,4 @@ export class CoinService {
         return [...rawResponse.data];
     }));
   }
-
-  getById(id: number): Observable<Coin> {
-    return this.http.get<Coin>(`${this.baseURL}/${id}`);
-  }
-
-  getByAlunoId(id: number): Observable<Coin[]> {
-    return this.http.get<Coin[]>(`${this.baseURL}/ByAluno/${id}`);
-  }
-
-  post(coin: Coin) {
-    return this.http.post(this.baseURL, Coin);
-  }
-
-  put(coin: Coin) {
-    return this.http.put(`${this.baseURL}/${coin.id}`, Coin);
-  }
-
-  delete(id: number) {
-    return this.http.delete(`${this.baseURL}/${id}`);
-  }
-
 }
