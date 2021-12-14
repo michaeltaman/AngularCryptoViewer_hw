@@ -35,6 +35,7 @@ export class CoinsComponent implements OnInit, OnDestroy {
 
 
   showCoins(quantity: number, isDesc: boolean) {
+    this.spinner.show();
     this.coinService.getAll()
       .pipe(takeUntil(this.unsubscriber))
       .subscribe((data: Coin[]) => {
